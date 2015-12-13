@@ -6,12 +6,12 @@ public class EnemyAI : GameMng{
     [SerializeField]
     private Animator animator;
 
-       public float WaitTime;//カウント後の待機時間
-       private int WalkId;
-       private int IdleId;
-       //private int TurnId;
-       private int ShotId;
-       private int DownId;
+    public float WaitTime;//カウント後の待機時間
+    private int WalkId;
+    private int IdleId;
+    //private int TurnId;
+    private int ShotId;
+    private int DownId;
     public bool flag;
 
 	/// <summary>

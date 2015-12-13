@@ -118,6 +118,8 @@ public class GameMng : MonoBehaviour
 				else
 				{
 					Debug.Log("ReStart");
+					ClearPlayerData();
+					Clear();
 					Application.LoadLevel(Application.loadedLevel);
 				}
 			}
@@ -153,6 +155,7 @@ public class GameMng : MonoBehaviour
 	{
 		ElapsedTime = 0f;
 		Winner = GunFighter.None;
+		_startedDuel = false;
 
 		PlayerData.LookBackTime = 0f;
 		PlayerData.IsLookBacked = false;

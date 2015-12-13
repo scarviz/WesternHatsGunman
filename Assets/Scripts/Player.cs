@@ -46,14 +46,21 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
+		// タイトル画面が表示している場合
+		if (GameMng.IsShownMenu)
+		{
+			return;
+		}
+
 		SetLookBack();
 
-		if ((Cardboard.SDK.Triggered || Input.GetButtonUp("Fire1"))
-			&& (!GameMng.IsShownMenu))
+		if ((Cardboard.SDK.Triggered || Input.GetButtonUp("Fire1")))
 		{
 			PfbMuzzleFlash.SetActive(true);
-			Invoke("ReMuzzleFlash", 2.5f);
+			Invoke("RemMuzzleFlash", 2.5f);
 			ShotSE.PlayOneShot(ShotSE.clip);
+
+			GameMng.PlayerData.TriggerCnt++;
 
 			// 自身の向きベクトルからY軸角度を取得
 			float angleDir = transform.eulerAngles.y;
@@ -90,7 +97,7 @@ public class Player : MonoBehaviour {
 	/// <summary>
 	/// マズルフラッシュを消す
 	/// </summary>
-	private void ReMuzzleFlash()
+	private void RemMuzzleFlash()
 	{
 		PfbMuzzleFlash.SetActive(false);
 	}

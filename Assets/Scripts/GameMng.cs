@@ -1,7 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameMng : MonoBehaviour {
+public class GameMng : MonoBehaviour
+{
+	/// <summary>
+	/// タイトル
+	/// </summary>
+	private GameObject Title;
+	/// <summary>
+	/// リザルト
+	/// </summary>
+	private GameObject Result;
+	/// <summary>
+	/// Win
+	/// </summary>
+	private GameObject Win;
+	/// <summary>
+	/// Lose
+	/// </summary>
+	private GameObject Lose;
+
 	#region enum
 	/// <summary>
 	/// GunFighterの識別用
@@ -67,6 +85,15 @@ public class GameMng : MonoBehaviour {
 		Cardboard.SDK.TapIsTrigger = true;
 		ClearPlayerData();
 		Clear();
+
+		Title = transform.FindChild("Title").gameObject;
+		Result = transform.FindChild("Result").gameObject;
+		Win = transform.FindChild("Result").FindChild("Win").gameObject;
+		Lose = transform.FindChild("Result").FindChild("Lose").gameObject;
+
+		Title.SetActive(true);
+		Result.SetActive(false);
+		IsShownMenu = true;
     }
 
 	// Update is called once per frame
@@ -77,16 +104,27 @@ public class GameMng : MonoBehaviour {
 			ElapsedTime += Time.deltaTime;
 		}
 
-		// 勝者が決まっている(リザルト表示の場合)
-		if (Winner != GunFighter.None)
+		if (GameMng.IsShownMenu)
 		{
-
-
-			if ((Cardboard.SDK.Triggered || Input.GetButtonUp("Fire1"))
-			&& GameMng.IsShownMenu)
+			if ((Cardboard.SDK.Triggered || Input.GetButtonUp("Fire1")))
 			{
-				Application.LoadLevel(Application.loadedLevel);
+				// 勝者が決まっていない(タイトル画面の場合)
+				if (Winner == GunFighter.None)
+				{
+					Debug.Log("Start");
+					Invoke("RemTitle", 0.5f);
+				}
+				// 勝者が決まっている(リザルト表示の場合)
+				else
+				{
+					Debug.Log("ReStart");
+					Application.LoadLevel(Application.loadedLevel);
+				}
 			}
+		}
+		else if (Winner != GunFighter.None)
+		{
+			Invoke("ViewResult", 0.5f);
 		}
 	}
 
@@ -131,6 +169,34 @@ public class GameMng : MonoBehaviour {
 		data.IsLookBacked = false;
 
 		PlayerData = data;
+	}
+
+	/// <summary>
+	/// タイトルを取り除く
+	/// </summary>
+	private void RemTitle()
+	{
+		Title.SetActive(false);
+		IsShownMenu = false;
+	}
+
+	/// <summary>
+	/// リザルトを表示する
+	/// </summary>
+	private void ViewResult()
+	{
+		if (Winner == GunFighter.Player)
+		{
+			Win.SetActive(true);
+			Lose.SetActive(false);
+		}
+		else
+		{
+			Win.SetActive(false);
+			Lose.SetActive(true);
+		}
+		Result.SetActive(true);
+		IsShownMenu = true;
 	}
 	#endregion
 }

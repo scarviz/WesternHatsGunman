@@ -248,7 +248,7 @@ public class Cardboard : MonoBehaviour {
 
   /// Use unity remote as the input source.
   [HideInInspector]
-  public bool UseUnityRemoteInput = false;
+  public bool UseUnityRemoteInput = true;
 
   /// The screen size to emulate when testing in the Unity Editor.
   public CardboardProfile.ScreenSizes ScreenSize {

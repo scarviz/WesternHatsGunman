@@ -8,7 +8,7 @@ Cardboard Hackathon in Kyoto 2015/12/13
 1. Wait since it is three counted.
 1. Pulling the trigger is turned around to suit the voice of the " three ".
 
-# Asset  
+# Assets  
 Pro Western 8 Characters Pack  
 https://www.assetstore.unity3d.com/jp/#!/content/41843
 

@@ -17,3 +17,11 @@ https://www.assetstore.unity3d.com/jp/#!/content/46306
 
 Sky5X One  
 https://www.assetstore.unity3d.com/jp/#!/content/6332
+
+
+# BGM    
+https://www.pond5.com/stock-music/30655649/mellow-spaghetti-western.html
+
+# SE
+gun.mp3    
+[魔王魂](http://maoudamashii.jokersounds.com/)

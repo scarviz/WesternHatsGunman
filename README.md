@@ -7,3 +7,13 @@ Cardboard Hackathon in Kyoto 2015/12/13
 1. It faces the back once from a state in which faces the enemy.
 1. Wait since it is three counted.
 1. Pulling the trigger is turned around to suit the voice of the " three ".
+
+# Asset  
+Pro Western 8 Characters Pack  
+https://www.assetstore.unity3d.com/jp/#!/content/41843
+
+Pro Western Starter Pack  
+https://www.assetstore.unity3d.com/jp/#!/content/46306
+
+Sky5X One  
+https://www.assetstore.unity3d.com/jp/#!/content/6332

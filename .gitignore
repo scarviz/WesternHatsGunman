@@ -21,3 +21,8 @@
 sysinfo.txt
 
 *.apk
+
+# Import Assets
+Assets/Pro_Western_Starter_Pack/
+Assets/ProWestern8CharactersPack/
+Assets/sky5X/
